@@ -1,0 +1,38 @@
+*:focus {
+    box-shadow: none !important;
+  }
+  
+  .navbar .logo {
+    color: red !important;
+    font-weight: 900;
+    font-size: 2rem;
+    text-shadow: 2px 2px 1px #fff, -2px 2px 1px #fff, 
+      2px -2px 1px #fff, -2px -2px 1px #fff;
+  }
+  
+  .navbar .form-inline {
+    width: 60% !important;
+  }
+  
+  .navbar .form-inline .input-search {
+    width: 85% !important;
+  }
+  
+  .row .side-bar {
+    background-color: #eee;
+    width: 25%;
+  }
+  
+  .side-bar ul {
+    list-style: none;
+  }
+  
+  .side-bar li {
+    padding: 10px;
+  }
+  
+  .row .main {
+    background-color: #fff;
+    width: 75%;
+  }
+  

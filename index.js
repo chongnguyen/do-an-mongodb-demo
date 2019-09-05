@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 app.set('view engine', 'pug');
 app.set('views', './views');
 
+app.use(express.static('public'));
+
 app.get('/', function (req, res) {
     res.render('home', {
         name: "Nguyen Duc Trong"
