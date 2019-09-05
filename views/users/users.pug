@@ -1,13 +1,21 @@
 extends ../layout/layout
 block content
     h1 users list
-    a(href="/users/create") create
+    a.btn.btn-primary(href="/users/create") create
     form(action="/users/search" method="GET")
-        input(type="text" name="q" value=value)
-        button search
-    ul
-        each user in users
-            li
-                span=user.name
-                span &nbsp;
-                a(href="/users/view/" + user.id) view
+        .form-group.d-flex.mt-3
+            input.form-control(type="text" name="q" value=value)
+            button.btn.btn-primary() search
+    table.table.table-striped.table-bordered.table-hover
+        thead.thead-dark
+            tr
+                th(scope="col") Name
+                th(scope="col") Phone
+                th(scope="col") View
+        tbody
+            each user in users
+                tr
+                    td=user.name
+                    td=user.phone
+                    td 
+                        a.btn.btn-secondary(href="/users/view/" + user.id) view

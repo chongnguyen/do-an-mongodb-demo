@@ -30,13 +30,31 @@ module.exports.view = function(req, res){
     var user = db.get('users').find({id: id}).value();
 
     res.render('users/view', {
-        name: user.name
+        name: user.name,
+        phone: user.phone
     })
 };
 
 module.exports.postCreate = function (req, res) {
     var id = shortid.generate();
     req.body.id = id;
+    var errors = [];
+    if(!req.body.name) {
+        errors.push("name is required");
+    }
+
+    if( !req.body.phone) {
+        errors.push("phone is required");
+    }
+
+    if(errors.length) {
+        res.render('users/create', {
+            errors: errors,
+            value: req.body
+        });
+        return;
+    }
+
     db.get('users').push(req.body).write();
     res.redirect('/users');
 };
