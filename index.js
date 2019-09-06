@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser')
 
 var userRouter = require('./router/users.router');
 var authRouter = require('./router/auth.router');
+var productRouter = require('./router/products.router');
 var authMiddleware = require('./middleware/auth.middleware');
 
 
@@ -25,12 +26,8 @@ app.get('/', function (req, res) {
     });
 });
 
-
-app.get('/products', function(req, res){
-    res.render('products/products');
-})
-
 app.use('/auth', authRouter);
+app.use('/products', productRouter);
 app.use('/users', authMiddleware.authMiddleware, userRouter);
 
 app.listen(port, function () {
