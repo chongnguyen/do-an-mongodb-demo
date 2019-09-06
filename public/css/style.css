@@ -17,6 +17,10 @@
   .navbar .form-inline .input-search {
     width: 85% !important;
   }
+
+  .navbar img {
+    width: 30px;
+  }
   
   .row .side-bar {
     background-color: #eee;
@@ -36,4 +40,6 @@
     width: 75%;
     padding: 20px;
   }
+
+
   

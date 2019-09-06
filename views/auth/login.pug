@@ -1,0 +1,12 @@
+extends ../layout/layout
+block content
+    h1 Login
+    if(errors)
+        .alert.alert-danger= errors
+    
+    form(action="/auth/login" method="POST" class="form-group")
+        label(for="name") Email:
+        input#name(type="email" name="email" class="form-control mr-2" value= value ? value.email : "")
+        label(for="phone") Pass:
+        input#phone(type="password" name="pass" class="form-control mr-2" value= value ? value.pass : "")
+        button(type="submit" class="btn btn-primary mt-2") Login

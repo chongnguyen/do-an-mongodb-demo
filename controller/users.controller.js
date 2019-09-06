@@ -38,23 +38,9 @@ module.exports.view = function(req, res){
 module.exports.postCreate = function (req, res) {
     var id = shortid.generate();
     req.body.id = id;
-    var errors = [];
-    if(!req.body.name) {
-        errors.push("name is required");
-    }
-
-    if( !req.body.phone) {
-        errors.push("phone is required");
-    }
-
-    if(errors.length) {
-        res.render('users/create', {
-            errors: errors,
-            value: req.body
-        });
-        return;
-    }
-
+    res.cookie("name", "12345");
+    
     db.get('users').push(req.body).write();
     res.redirect('/users');
+
 };
