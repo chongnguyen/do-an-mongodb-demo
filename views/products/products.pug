@@ -1,31 +1,23 @@
 extends ../layout/layout
 block content
     .row
-        .card(style='width: 18rem;')
-            img.card-img-top(src='https://loremflickr.com/320/240', alt='Card image cap')
-            .card-body
-                h5.card-title Card title
-                p.card-text
-                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                a.btn.btn-primary(href='#') Go somewhere
-        .card(style='width: 18rem;')
-            img.card-img-top(src='https://loremflickr.com/320/240', alt='Card image cap')
-            .card-body
-                h5.card-title Card title
-                p.card-text
-                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                a.btn.btn-primary(href='#') Go somewher
-        .card(style='width: 18rem;')
-            img.card-img-top(src='https://loremflickr.com/320/240', alt='Card image cap')
-            .card-body
-                h5.card-title Card title
-                p.card-text
-                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                a.btn.btn-primary(href='#') Go somewhere
-        .card(style='width: 18rem;')
-            img.card-img-top(src='https://loremflickr.com/320/240', alt='Card image cap')
-            .card-body
-                h5.card-title Card title
-                p.card-text
-                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                a.btn.btn-primary(href='#') Go somewhere
+        each product in products
+            .card(style='width: 23%; margin: auto; margin-bottom: 20px')
+                img.card-img-top(src= product.image, alt='Card image cap')
+                .card-body
+                    h5.card-title= product.name
+                    p.card-title.text-danger= product.price
+                    p.card-text
+                    | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                    a.btn.btn-primary(href='#') Go somewhere
+    
+    nav.m-auto(aria-label='Page navigation example')
+        ul.pagination.justify-content-center
+            li.page-item
+                a.page-link(href='#') Previous
+            each page in pages
+                li.page-item
+                    a.page-link(href='/products?page=' + page)= page
+            li.page-item
+                a.page-link(href='#') Next
+            
